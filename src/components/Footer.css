@@ -1,0 +1,34 @@
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer__icon {
+    padding: 1em;
+    box-shadow: 3px 2px 2px rgba(0, 0, 0, .4) !important;
+    border-radius: 50%;
+}
+
+.footer__replay {
+    color: orange;
+}
+
+.footer__close {
+    color: red;
+}
+
+.footer__star {
+    color: cyan;
+}
+
+.footer__favorite {
+    color: green;
+}
+
+.footer__flash {
+    color: violet;
+}

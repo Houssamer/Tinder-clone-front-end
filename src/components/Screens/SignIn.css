@@ -1,0 +1,152 @@
+.signIn {
+    position: absolute;
+    top: 20%;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    background-color: white;
+    width: 30%;
+    height: 70vh;
+    z-index: 2;
+    margin-top: 5em;
+    border-radius: 5px;
+    box-shadow: 1px 2px 7px 1px orange;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 40%;
+    width: 100%;
+}
+
+.login__form__email {
+    border: 2px solid black;
+    border-radius: 100rem;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+}
+
+.login__form__password {
+    border: 2px solid black;
+    border-radius: 100rem;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+}
+
+.login__form__button {
+    width: 80%;
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    background-image: linear-gradient(to right, #FE3079, orange);
+    border: none;
+    border-radius: 100rem;
+    height: 20%;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.login__form__button:hover {
+    transition: all 300ms ease;
+    background-image: linear-gradient(to right, #FE3079, #fd0059);
+}
+
+.first {
+    color: gray;
+}
+
+.second {
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.second:hover {
+    text-decoration: underline;
+}
+
+.signUp {
+    background-color: white;
+    width: 30%;
+    height: 80vh;
+    z-index: 2;
+    margin-top: 5em;
+    border-radius: 5px;
+    box-shadow: 1px 2px 7px 1px orange;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.signUp__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60%;
+    width: 100%;
+}
+
+.signUp__form__name {
+    border: 2px solid black;
+    border-radius: 100rem;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+}
+
+.signUp__form__email {
+    border: 2px solid black;
+    border-radius: 100rem;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+}
+
+.signUp__form__password {
+    border: 2px solid black;
+    border-radius: 100rem;
+    outline: none;
+    padding: 10px;
+    width: 80%;
+}
+
+.signUp__form__button {
+    width: 80%;
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    background-image: linear-gradient(to right, #FE3079, orange);
+    border: none;
+    border-radius: 100rem;
+    height: 15%;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.signUp__form__button:hover {
+    transition: all 300ms ease;
+    background-image: linear-gradient(to right, #FE3079, #fa0057);
+}
+
+input:focus {
+    transition: all 300ms ease;
+    border: 5px solid #FE3079;
+}

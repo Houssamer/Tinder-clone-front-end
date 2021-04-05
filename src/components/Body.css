@@ -1,0 +1,24 @@
+.body {
+    height: 50vh;
+    margin: 2em;
+}
+
+.body__content {
+    object-fit: contain;
+    max-width: 50vw;
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    color: white;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, .2);
+}
+
+.body__name {
+    font-size: 2em;
+    position: absolute;
+    bottom: .5em;
+    margin-left: .5em;
+}
