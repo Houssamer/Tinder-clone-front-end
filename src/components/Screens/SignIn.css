@@ -56,6 +56,7 @@
     background-image: linear-gradient(to right, #FE3079, orange);
     border: none;
     border-radius: 100rem;
+    outline: none;
     height: 20%;
     cursor: pointer;
     transition: all 300ms ease;
@@ -136,6 +137,7 @@
     background-image: linear-gradient(to right, #FE3079, orange);
     border: none;
     border-radius: 100rem;
+    outline: none;
     height: 15%;
     cursor: pointer;
     transition: all 300ms ease;

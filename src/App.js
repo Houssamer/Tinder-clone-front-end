@@ -8,16 +8,54 @@ import {
   Route,
 } from "react-router-dom";
 import Fscreen from './components/Screens/Fscreen';
+import Profile from './components/Screens/Profile';
+import NotAllowed from './components/Screens/NotAllowed';
+import { useDispatch, useSelector } from 'react-redux';
+import { Login, Logout, selectUser } from './features/userSlice';
+import { useEffect } from 'react';
+import axios from './axios';
+
 
 function App() {
-  const user = false;
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const config = {
+      headers: {
+        'x-auth-token': localStorage.getItem('token')
+      }
+    }
+    axios.get('/api/users', config)
+      .then(res => {
+        dispatch(Login({
+          token: localStorage.getItem('token'),
+          name: res.data.name,
+          email: res.data.email,
+          imgURL: res.data?.imgURL
+        }))
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(Logout());
+      })
+  })
   return (
     <div className="App">
       <Router>
       {!user ? (
-        <Fscreen />
+        <Switch>
+          <Route path="/profile">
+            <NotAllowed />
+          </Route>
+          <Route path="/">
+            <Fscreen />
+          </Route>
+        </Switch>
       ) : (
         <Switch>
+          <Route path="/Profile">
+            <Profile />
+          </Route>
           <Route path="/">
             <Header />
             <Body />
