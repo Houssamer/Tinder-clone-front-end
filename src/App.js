@@ -29,6 +29,7 @@ function App() {
       .then(res => {
         dispatch(Login({
           token: localStorage.getItem('token'),
+          id: res.data._id,
           name: res.data.name,
           email: res.data.email,
           imgURL: res.data?.imgURL
@@ -37,8 +38,9 @@ function App() {
       .catch(err => {
         console.log(err);
         dispatch(Logout());
+        alert('You are having a problem please try again')
       })
-  })
+  }, [dispatch])
   return (
     <div className="App">
       <Router>

@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Body.css';
 import TinderCard from 'react-tinder-card';
+import axios from '../axios';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../features/userSlice';
 
 function Body() {
-  const [people, setPeople] = useState([
-    {
-      name: 'riad',
-      imgUrl:
-        'https://i.gaw.to/content/photos/40/01/400118_2020_Ford_Mustang.jpg',
-    },
-    {
-      name: 'oussama',
-      imgUrl:
-        'https://d26oc3sg82pgk3.cloudfront.net/files/media/edit/image/31281/original.jpg',
-    },
-  ]);
+  const user = useSelector(selectUser);
+  const [people, setPeople] = useState([]);
+
+  useEffect(() => {
+    const config = {
+      headers: {
+        'x-auth-token': localStorage.getItem('token'),
+      },
+    };
+    axios
+      .get(`/api/users_except_one/${user.id}`, config)
+      .then((res) => {
+        setPeople(res.data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('You are having a problem please try again');
+      });
+  });
 
   function swipe(direction) {
     console.log('You swiped ' + direction);
@@ -24,16 +34,16 @@ function Body() {
   }
   return (
     <div className="body">
-      {people.map((person, index) => (
+      {people.map((person) => (
         <TinderCard
           onSwipe={swipe}
           preventSwipe={['up', 'down']}
           onCardLeftScreen={() => onCardLeftScreen(person.name)}
+          key={person._id}
         >
           <div
             className="body__content"
-            style={{ backgroundImage: `url(${person.imgUrl})` }}
-            key={index}
+            style={{ backgroundImage: `url(${person.imgURL})` }}
           >
             <h1 className="body__name">{person.name}</h1>
           </div>

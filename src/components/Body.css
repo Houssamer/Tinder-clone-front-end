@@ -4,17 +4,18 @@
 }
 
 .body__content {
-    object-fit: contain;
-    max-width: 50vw;
+    width: auto;
     height: 60vh;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     left: 25%;
     right: 25%;
     color: white;
     box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, .2);
 }
+
 
 .body__name {
     font-size: 2em;

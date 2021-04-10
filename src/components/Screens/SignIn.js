@@ -39,6 +39,7 @@ function SignIn() {
         dispatch(
           Login({
             token: localStorage.getItem('token'),
+            id: res.data.user.id,
             name: res.data.user.name,
             email: res.data.user.email,
           })
@@ -47,6 +48,7 @@ function SignIn() {
       .catch((err) => {
         console.log(err);
         dispatch(Logout());
+        alert('You are having a probleme please try again')
       });
   };
 
@@ -64,20 +66,25 @@ function SignIn() {
       },
     };
 
-    axios.post('/api/auth', body, config)
-      .then(res => {
-        localStorage.setItem('token', res.data.token)
-        dispatch(Login({
-          token: localStorage.getItem('token'),
-          name: res.data.user.name,
-          email: res.data.user.email,
-          imgURL: res.data.user?.imgURL
-        }))
+    axios
+      .post('/api/auth', body, config)
+      .then((res) => {
+        localStorage.setItem('token', res.data.token);
+        dispatch(
+          Login({
+            token: localStorage.getItem('token'),
+            id: res.data.user.id,
+            name: res.data.user.name,
+            email: res.data.user.email,
+            imgURL: res.data.user?.imgURL,
+          })
+        );
       })
-      .catch(err => {
-        console.log(err);
-        dispatch(Logout())
-      })
+      .catch((err) => {
+        console.log(err.message);
+        dispatch(Logout());
+        alert('You are having an error please try again');
+      });
   };
 
   return (

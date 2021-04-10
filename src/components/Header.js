@@ -10,8 +10,8 @@ function Header() {
   const history = useHistory();
   return (
     <div className="header">
-      <IconButton>
-        <PersonIcon className="icon" onClick={() => history.push('/Profile')}/>
+      <IconButton onClick={() => history.push('/Profile')}>
+        <PersonIcon className="icon"/>
       </IconButton>
 
       <img src={logo} alt="logo" className="header__logo" onClick={() => history.push('/')} />

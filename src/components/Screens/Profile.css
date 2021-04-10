@@ -50,6 +50,10 @@
     transition: all 300ms ease;
     border: 5px solid #fe3079;
 }
+
+.profile__form__button:disabled {
+    opacity: .4;
+}
 .profile__logout__button {
     background-image: linear-gradient(to right, #fe3079, orange);
     border: none;
